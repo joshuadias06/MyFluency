@@ -22,6 +22,14 @@ public class Progress {
 
     private Long userId;
     private String difficulty;
-    private Integer totalExercise;
-    private Integer correctAnswer;
+    private int totalExercise;
+    private int correctAnswer;
+
+    public Progress(Long userId, String difficulty, int totalExercise, int correctAnswer) {
+        this.userId = userId;
+        this.difficulty = difficulty;
+        this.totalExercise = totalExercise;
+        this.correctAnswer = correctAnswer;
+    }
+
 }
