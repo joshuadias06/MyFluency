@@ -2,6 +2,7 @@ package com.myfluency.fluency.controller;
 
 import com.myfluency.fluency.model.Exercise;
 import com.myfluency.fluency.repository.ExerciseRepository;
+import com.myfluency.fluency.service.ExerciseService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
@@ -14,6 +15,8 @@ public class ExerciseController {
 
     @Autowired
     private final ExerciseRepository exerciseRepository;
+    @Autowired
+    private ExerciseService exerciseService;
 
     public ExerciseController(ExerciseRepository exerciseRepository) {
         this.exerciseRepository = exerciseRepository;
@@ -24,12 +27,16 @@ public class ExerciseController {
         return exerciseRepository.findByDifficulty(difficulty);
     }
 
-    @PostMapping
+    @PostMapping("/validate")
     public boolean validateAnswer(@RequestBody Map<String, String> userAnswer){
-
         String questionId = userAnswer.get("id");
         String answer = userAnswer.get("answer");
-        return true;
+        return exerciseService.validateAnswer(Long.parseLong(questionId), answer);
+    }
+
+    @PostMapping
+    public Exercise createExercise(@RequestBody Exercise exercise){
+        return exerciseService.createExercise(exercise);
     }
 
 }

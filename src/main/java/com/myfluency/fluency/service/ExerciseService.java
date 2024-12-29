@@ -10,11 +10,9 @@ import java.util.List;
 @Service
 public class ExerciseService {
 
-    private final ExerciseRepository exerciseRepository;
+    @Autowired
+    private ExerciseRepository exerciseRepository;
 
-    public ExerciseService(ExerciseRepository exerciseRepository) {
-        this.exerciseRepository = exerciseRepository;
-    }
 
     public List<Exercise> getExerciseByDifficulty(String difficulty) {
         return exerciseRepository.findByDifficulty(difficulty);
