@@ -17,7 +17,7 @@ public class TextController {
     public String submitText(@RequestBody Text text){
         textAnalysisService.saveText(text);
 
-        boolean isCorrect = textAnalysisService.analyzeText(text.getText());
+        boolean isCorrect = textAnalysisService.analyzeText(text.getContent());
         return isCorrect ? "Texto correto" : "Texto pode ser falado de forma correta assim: ";
     }
 
