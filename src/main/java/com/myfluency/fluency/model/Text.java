@@ -20,5 +20,6 @@ public class Text {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
     private Long userId;
-    private String text;
+    private String content; // Alterado de 'text' para 'content'
+    private boolean isValidEnglish; // Adicionado o campo para verificar a validade do texto
 }
