@@ -41,7 +41,7 @@ public class TextAnalysisService {
                 // Agora cria um objeto Text e persiste no banco
                 Text textEntity = new Text();
                 textEntity.setContent(text);
-                textEntity.setIsValidEnglish(isValidEnglish);
+                textEntity.setValidEnglish(isValidEnglish);
 
                 saveText(textEntity); // Persiste o texto no banco
 
